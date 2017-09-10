@@ -91,19 +91,27 @@ public class VideoThread implements Runnable {
         lastFiveImages[currentLastElementsIndex] = originalImage;
         currentLastElementsIndex = currentLastElementsIndex == 4 ? 0 : ++currentLastElementsIndex;
 
+        double averageValue = 0.0;
         boolean saveScreenshot = true;
         for (int i = 0; i < lastFiveValues.length; ++i) {
             if (lastFiveValues[i] == 0) {
                 saveScreenshot = false;
                 break;
             }
+
+            averageValue = averageValue + lastFiveValues[i];
         }
+        averageValue = averageValue / lastFiveValues.length;
+
+        if (averageValue < 100000)
+            saveScreenshot = false;
 
         if (val > 1000000 && !saveScreenshot)
             saveScreenshot(originalImage, val);
 
         if (saveScreenshot)
             saveScreenshot(originalImage, val);
+        
 
         return toBufferedImage(mask);
     }
