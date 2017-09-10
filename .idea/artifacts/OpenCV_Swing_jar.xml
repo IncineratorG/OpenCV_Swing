@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="OpenCV_Swing:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/OpenCV_Swing_jar</output-path>
+    <root id="archive" name="OpenCV_Swing.jar">
+      <element id="module-output" name="OpenCV_Swing" />
+      <element id="extracted-dir" path="C:/OpenCV_3.3.0/build/java/opencv-330.jar" path-in-jar="/" />
+      <element id="library" level="project" name="opencv-330" />
+    </root>
+  </artifact>
+</component>
